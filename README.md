@@ -43,18 +43,223 @@ Accommodation
 
 ![image](https://user-images.githubusercontent.com/122529052/236268558-e10dae9e-49c4-4032-a156-bfdaf7475abe.png)
 
-Find Candidate Key • Attribute not present any sides: None • Attribute present Only on left side: name, Dep_time, fare, status, seats, hours. • Attribute present Only on right side: id, classId, source, destination, date. • Attribute present both sides: None CK- (id, classId, source, destination, date)+ = R Now decomposed the table into four table for BCNF normalization.
+Find Candidate Key
+
+• Attribute not present any sides: None
+
+• Attribute present Only on left side: name, Dep_time, fare, status, seats, hours.
+
+• Attribute present Only on right side: id, classId, source, destination, date.
+
+• Attribute present both sides: None
+
+CK- (id, classId, source, destination, date)+ = R
+
+Now decomposed the table into four table for BCNF normalization.
 
 # Train
 
-In this table there is one functional dependency {train_id --> train_name} and the normal form is BCNF.
+In this table there is one functional dependency
 
-• TrainDepartureTime • FDs: {train_id, source} ---> departure_time • Normal Form: BCNF • Foreign Key: o train_id from table Train as train_id o city_name from table City as source • TrainReservation • FDs: o {train_id, ClassId, source, destination, Date} ---> fare o {train_id, ClassId, source, destination, Date} ---> train_status o {train_id, ClassId, source, destination, Date} ---> no_of_seats • Normal Form: BCNF • Foreign Key: o {train_id, source} from table TrainDepartureTime as {train_id, source} o city_name from table City as destination • TrainJourneyHours • FDs: o {train_id, source, destination} ---> journey_hours • Normal Form: BCNF • Foreign Key: o {train_id, source} from table TrainDepartureTime as {train_id, source} o city_name from table City as destination
+{train_id --> train_name} and the normal form is BCNF.
 
-• TrainJourneyHours • FDs: o {train_id, source, destination} ---> journey_hours • Normal Form: BCNF • Foreign Key: o {train_id, source} from table TrainDepartureTime as {train_id, source} o city_name from table City as destination
+TrainDepartureTime
+• FDs: {train_id, source} ---> departure_time
 
-# CAB
+• Normal Form: BCNF
 
-• CabType • Normal Form: BCNF • CabService • FDs: o cab_service_id ---> provider_name o cab_service_id ---> contact_no o cab_service_id ---> rating • Normal Form: BCNF • CabServiceInACity • Normal Form: BCNF • Foreign Key: o cab_service_id from table CabService as cab_service_id o city_name from table City as city_name • Cabs • FDs: o {cab_service_id, city_name, cab_type} ---> cost_per_day o {cab_service_id, city_name, cab_type} ---> total_available_cabs • Normal Form: BCNF • Foreign Key: o {cab_service_id, city_name} from table CabServiceInACity as {cab_service_id, city_name} o cab_type from table CabType as cab_type
+• Foreign Key:
+
+o	train_id from table Train as train_id
+
+o	city_name from table City as source
+
+TrainJourneyHours
+• FDs:
+
+o	{train_id, source, destination} ---> journey_hours 
+• Normal Form: BCNF
+
+• Foreign Key:
+
+o	{train_id, source} from table TrainDepartureTime as {train_id, source}
+
+o	city_name from table City as destination
+CAB
+CabType
+• Normal Form: BCNF
+
+CabService
+• FDs:
+
+o	cab_service_id ---> provider_name
+
+o	cab_service_id ---> contact_no
+
+o	cab_service_id ---> rating
+• Normal Form: BCNF
+
+CabServiceInACity
+• Normal Form: BCNF
+
+• Foreign Key:
+
+o	cab_service_id from table CabService as cab_service_id
+
+o	city_name from table City as city_name 
+Cabs
+• FDs:
+
+o	{cab_service_id, city_name, cab_type} ---> cost_per_day
+
+o	{cab_service_id, city_name, cab_type} ---> total_available_cabs
+• Normal Form: BCNF
+
+• Foreign Key:
+
+o	{cab_service_id, city_name} from table CabServiceInACity as {cab_service_id, city_name}
+
+o	cab_type from table CabType as cab_type 
+BUS
+Bus
+• FDs:
+
+ o	bus_id ---> provider_name
+
+ o	bus_id ---> is_ac
+
+ o	bus_id ---> rating
+• Normal Form: BCNF
+
+BusDepartureTime
+• FDs:
+
+ o	{bus_id, source, departure_date} ---> time_of_departure
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	bus_id from table Bus as bus_id
+
+ o	city_name from table City as source
+• BusJourneyHours
+
+• FDs:
+
+ o	{bus_id, source, destination, departure_date} ---> journey_hours
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	{bus_id, source, departure_date} from table BusDepartureTime as bus_id,source, departure_date}
+
+ o	city_name from table City as destination 
+BusReservation
+• FDs:
+
+ o	bus_id, source, destination, departure_date, seat_type} ---> cost
+
+ o	{bus_id, source, destination, departure_date, seat_type} ---> total_available_seats 
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	{bus_id, source, departure_date} from table BusDepartureTime as {bus_id, source, departure_date}
+
+ o	city_name from table City as destination
+City
+City
+• Normal Form: BCNF
+
+• NearByCites
+
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	city_name from table City as current _city
+
+ o	city_name from table City as nearby_city 
+Locality
+Locality
+• FDs:
+
+ o	locality_id ---> locality_name
+
+ o	locality_id ---> city_name
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	city_name from table City as city_name 
+Place to visit
+PlacesToVisit
+• FDs:
+
+ o	{place_name, locality_id} ---> place_type
+
+ o	{place_name, locality_id} ---> description_of_the_place
+
+ o	{place_name, locality_id} ---> rating
+
+ o	{place_name, locality_id} ---> street_address
+
+ o	{place_name, locality_id} ---> avg_cost_person
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	locality_id from table Locality as locality_id
+Hotels
+Hotels
+• FDs:
+
+ o	{hotel_name, locality_id} ---> rating
+
+ o	{hotel_name, locality_id} ---> street_address
+
+ o	{hotel_name, locality_id} ---> is_room_service
+
+ o	{hotel_name, locality_id} ---> contact_no
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	locality_id from table Locality as locality_id 
+HotelReservation
+• FDs:
+
+ o	{hotel_name, locality_id, date_of_availability, RoomType} ---> total_available_rooms
+
+ o	{hotel_name, locality_id, date_of_availability, RoomType} ---> cost
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	{hotel_name, locality_id} from table Hotels as {hotel_name, locality_id}
+
+ o	room_type from table TypeOfRoom as room_type  
+TypeOfRoom
+• FDs:
+
+ o	room_type ---> max_accomodation
+• Normal Form: BCNF
+
+Restaurants
+Restaurants
+• FDs:
+
+ o	{restaurant_name, locality_id} ---> restaurant_type
+
+ o	{restaurant_name, locality_id} ---> rating
+
+ o	{restaurant_name, locality_id} ---> street_address
+
+ o	{restaurant_name, locality_id} ---> AvgRate/Person  
+• Normal Form: BCNF
+
+• Foreign Key:
+
+ o	locality_id from table Locality as locality_id
 
 
