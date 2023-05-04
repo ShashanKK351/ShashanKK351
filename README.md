@@ -348,5 +348,130 @@ o	locality_id from table Locality as locality_id
  ```
  
  # QUERIES:
+ 
+ These are some Realistic Queries for the System with their following SQL commands and relational algebra.
+
+## Query 1: List all the cities which have more than 3 historical places to visit.
+
+### Relational Algebra:
+
+a ← Locality ⨝<locality_id=PlacesToVisit.locality_id> PlacesToVisit
+
+b ← 𝞂<type = ‘Historical’>(a)
+
+c ← city_nameG count(city_name) (b) HAVING<ਹ >=3>
+
+d ← 𝛑<city_name>(c)
+
+MySQL Command:
+
+![image](https://user-images.githubusercontent.com/122529052/236297760-fa5c2a4a-04dc-4811-b24a-965f7013f33a.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236297806-97a3f42f-33a6-4107-9fa5-f44fecf9d851.png)
+
+## QUERY 2: NON-AC buses between Delhi and Mumbai on date 16th April, 2021.
+
+Relational Algebra
+
+a ← Bus ⨝<Bus.bus_id=BusReservation.bus_id> BusReservation
+
+b ← 𝞂<source = ‘Delhi and destination = ‘Mumbai’ and is_ac = false and date =’2021-4-16’>(a)
+
+c ← 𝛑<bus_id, bus_service_provider>(c)
+
+MySQL Command
+
+![image](https://user-images.githubusercontent.com/122529052/236297904-e11fc599-9e33-4447-a297-5e996cfc7031.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236297952-d9d5b96f-d254-42fb-8e8b-00ee44440b33.png)
+
+## QUERY 3: Restaurants near the cheapest hotel in Delhi.
+
+Relational Algebra
+
+a ← hotels ⨝<hotel.locality_id=locality.locality_id> locality
+
+b ← 𝞂<city_name = “Delhi”>(a)
+
+c ← 𝛑<min(cost)>(b)
+
+d ← 𝞂(b)
+
+e ← d ⨝<d.locality_id=Restaurants.locality_id>Restaurants
+
+f ← 𝛑<city_name>(e)
+
+MySQL Command
+
+![image](https://user-images.githubusercontent.com/122529052/236298104-00db4d88-71e7-4ee0-8949-9fd03f207886.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236298131-28194703-4ace-4234-9f21-0f4aa8a0ace1.png)
+
+## QUERY 4: Find restaurants which are nearby to the highest rated place to visit in Delhi.
+
+Relational Algebra
+
+a ← PlacesToVisit ⨝<PlacesToVisit.locality_id=Locality.locality_id>Locality
+
+b ← 𝞂<city_name = “Delhi”>(a)
+
+c ← 𝛑<max(rating)>(b)
+
+d ← 𝞂(b)
+
+e ← d ⨝<d.locality_id=Restaurants.locality_id> Restaurants
+
+MySQL Command
+
+![image](https://user-images.githubusercontent.com/122529052/236298239-e7e3ff08-f917-411e-9419-43a7f3566977.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236298272-1cd9705a-add4-400e-bc77-923a4ddf7fc4.png)
+
+## QUERY 5: Find those hotels in Delhi, which have those rooms available that can accommodate more than 1 person.
+
+Relational algebra
+
+a ← HotelReservation ⨝<HotelReservation.room_type = TypeOfRoom.room_type>TypeOfRoom
+
+b ← a ⨝<a.locality_id = Locality.locality_id> Locality
+
+c ← 𝞂<city_name = “Delhi” and max_accomodation > 1 and total_available_rooms > 1>(b)
+
+d ← 𝛑<distinct hote_name, room_type>(c)
+
+MySQL Command
+
+![image](https://user-images.githubusercontent.com/122529052/236298373-9f8bb595-99c0-433b-9370-28b41170d15e.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236298400-45d5cc91-35a3-4397-9de1-ffd2d4fdd886.png)
+
+## QUERY 6: All those cab service providers who can provide a ‘SUV’ cab in Vadodara.
+
+Relational algebra
+
+a ← Cabs ⨝<Cabs.cab_service_id=CabService.cab_service_id> CabService
+
+b ← 𝞂<cab_type = “SUV” and city_name = “Vadodara”>(a)
+
+c ← 𝛑<cab_service_id, provider_name>(b)
+
+MySQL Command
+
+![image](https://user-images.githubusercontent.com/122529052/236298480-3b33ec12-346a-4f6c-95f2-90fcc85580da.png)
+
+OUTPUT
+
+![image](https://user-images.githubusercontent.com/122529052/236298524-c0d2605b-dc03-4611-897a-4feee678e360.png)
+
 
 
