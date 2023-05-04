@@ -249,13 +249,14 @@ TypeOfRoom
 ### Restaurants
 • FDs:
 
- o	{restaurant_name, locality_id} ---> restaurant_type
+ ```o	{restaurant_name, locality_id} ---> restaurant_type
 
  o	{restaurant_name, locality_id} ---> rating
 
  o	{restaurant_name, locality_id} ---> street_address
 
- o	{restaurant_name, locality_id} ---> AvgRate/Person  
+ o	{restaurant_name, locality_id} ---> AvgRate/Person ```
+ 
 • Normal Form: BCNF
 
 • Foreign Key:
