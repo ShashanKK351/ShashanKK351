@@ -6,3 +6,10 @@ An entity relationship model describes interrelated things of interest in a spec
 
 ![image](https://user-images.githubusercontent.com/122529052/236267367-b5fda356-c9fe-4d97-af0f-04eef03b76a1.png)
 
+RELATIONAL SCHEMA
+A relational database schema helps to understand and organize the structure of a database. It is helpful when we design a new database or existing database is modified to incorporate new functionality.
+
+![image](https://user-images.githubusercontent.com/122529052/236267973-4154c0ca-4ac0-4f14-a839-691a77d139c5.png)
+
+![image](https://user-images.githubusercontent.com/122529052/236268009-715d29ce-9003-413b-ac24-d5daad4bad4a.png)
+
