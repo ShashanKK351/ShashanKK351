@@ -51,7 +51,8 @@ In this table there is one functional dependency {train_id --> train_name} and t
 
 • TrainJourneyHours • FDs: o {train_id, source, destination} ---> journey_hours • Normal Form: BCNF • Foreign Key: o {train_id, source} from table TrainDepartureTime as {train_id, source} o city_name from table City as destination
 
-CAB
+# CAB
+
 • CabType • Normal Form: BCNF • CabService • FDs: o cab_service_id ---> provider_name o cab_service_id ---> contact_no o cab_service_id ---> rating • Normal Form: BCNF • CabServiceInACity • Normal Form: BCNF • Foreign Key: o cab_service_id from table CabService as cab_service_id o city_name from table City as city_name • Cabs • FDs: o {cab_service_id, city_name, cab_type} ---> cost_per_day o {cab_service_id, city_name, cab_type} ---> total_available_cabs • Normal Form: BCNF • Foreign Key: o {cab_service_id, city_name} from table CabServiceInACity as {cab_service_id, city_name} o cab_type from table CabType as cab_type
 
 
