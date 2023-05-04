@@ -3,3 +3,5 @@ A Trip planner management system would play a significant role in planning the p
 
 ENTITY RELATIONSHIP DIAGRAM
 An entity relationship model describes interrelated things of interest in a specific domain of knowledge. The ER Diagram of Trip planner Management System is shown below.
+![image](https://user-images.githubusercontent.com/122529052/236267367-b5fda356-c9fe-4d97-af0f-04eef03b76a1.png)
+
