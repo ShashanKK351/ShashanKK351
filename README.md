@@ -236,16 +236,21 @@ HotelReservation
 
 • Foreign Key:
 
- o	{hotel_name, locality_id} from table Hotels as {hotel_name, locality_id}
+ ``` o	{hotel_name, locality_id} from table Hotels as {hotel_name, locality_id} 
 
- o	room_type from table TypeOfRoom as room_type  
-TypeOfRoom
+     o	room_type from table TypeOfRoom as room_type
+ ```
+ 
+###TypeOfRoom
+
 • FDs:
 
- o	room_type ---> max_accomodation
+ ```o	room_type ---> max_accomodation```
+ 
 • Normal Form: BCNF
 
 ## Restaurants
+
 ### Restaurants
 • FDs:
 
