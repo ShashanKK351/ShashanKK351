@@ -261,8 +261,7 @@ TypeOfRoom
 
 • Foreign Key:
 
- ```o	locality_id from table Locality as locality_id
- ```
+ ``` o	locality_id from table Locality as locality_id ```
  
  # QUERIES:
 
