@@ -245,8 +245,8 @@ TypeOfRoom
  o	room_type ---> max_accomodation
 • Normal Form: BCNF
 
-Restaurants
-Restaurants
+# Restaurants
+# Restaurants
 • FDs:
 
  o	{restaurant_name, locality_id} ---> restaurant_type
