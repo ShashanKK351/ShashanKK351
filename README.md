@@ -226,7 +226,9 @@ Hotels
 • Foreign Key:
 
  o	locality_id from table Locality as locality_id 
-HotelReservation
+
+#### HotelReservation
+
 • FDs:
 
  o	{hotel_name, locality_id, date_of_availability, RoomType} ---> total_available_rooms
@@ -242,11 +244,13 @@ HotelReservation
  o	room_type from table TypeOfRoom as room_type
  ```
  
-### TypeOfRoom
+#### TypeOfRoom
 
 • FDs:
 
- ```o	room_type ---> max_accomodation```
+ ```
+ o	room_type ---> max_accomodation
+ ```
  
 • Normal Form: BCNF
 
