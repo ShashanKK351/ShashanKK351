@@ -236,12 +236,13 @@ HotelReservation
 
 • Foreign Key:
 
- ``` o	{hotel_name, locality_id} from table Hotels as {hotel_name, locality_id} 
+ ``` 
+ o	{hotel_name, locality_id} from table Hotels as {hotel_name, locality_id} 
 
-     o	room_type from table TypeOfRoom as room_type
+ o	room_type from table TypeOfRoom as room_type
  ```
  
-###TypeOfRoom
+### TypeOfRoom
 
 • FDs:
 
