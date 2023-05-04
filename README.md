@@ -45,7 +45,7 @@ Accommodation
 
 Find Candidate Key • Attribute not present any sides: None • Attribute present Only on left side: name, Dep_time, fare, status, seats, hours. • Attribute present Only on right side: id, classId, source, destination, date. • Attribute present both sides: None CK- (id, classId, source, destination, date)+ = R Now decomposed the table into four table for BCNF normalization.
 
-# • Train
+# Train
 
 In this table there is one functional dependency {train_id --> train_name} and the normal form is BCNF.
 
