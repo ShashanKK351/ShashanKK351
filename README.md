@@ -263,6 +263,6 @@ TypeOfRoom
 
  ```o	locality_id from table Locality as locality_id```
  
- #QUERIES:
+ # QUERIES:
 
 
