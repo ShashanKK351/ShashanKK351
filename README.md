@@ -11,5 +11,6 @@ A relational database schema helps to understand and organize the structure of a
 
 ![image](https://user-images.githubusercontent.com/122529052/236267973-4154c0ca-4ac0-4f14-a839-691a77d139c5.png)
 
-![image](https://user-images.githubusercontent.com/122529052/236268009-715d29ce-9003-413b-ac24-d5daad4bad4a.png)
+![image](https://user-images.githubusercontent.com/122529052/236268009-715d29ce-9003-413b-ac24-d5daad4bad4a.png) ![image](https://user-images.githubusercontent.com/122529052/236268126-dde57c53-595e-419b-8746-783f2043f01b.png)
+
 
